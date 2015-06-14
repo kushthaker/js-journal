@@ -6,10 +6,12 @@ function Journal() {
 
     this.entries = [];
 
+    //uses Entry constructor to create entry object and stores it in this.entries[]
     this.writeEntry = function writeEntry(title, content, author, tags) {
         this.entries.push(new Entry(title, content, author, tags));
     }
 
+    //takes index value and returns string that prints the specific entry to console 
     this.readSingleEntry = function readSingleEntry(entryNumber) {
         var dateStamp = new Date();
         var str = this.entries[entryNumber].title + "\n\n" + this.entries[entryNumber].content +
@@ -19,6 +21,7 @@ function Journal() {
         return str;
     }
 
+    //returns string that lists all entries in journal 
     this.readAllEntries = function readAllEntries() {
         var str = "";
 
@@ -29,6 +32,7 @@ function Journal() {
         return str;
     }
 
+    //takes in string tag and returns all object entries with that tag
     this.searchTag = function searchTag(tag) {
 
         var entriesWithTag = [];
@@ -45,8 +49,26 @@ function Journal() {
         return entriesWithTag;
     }
 
+
+    //takes in string and returns all object entries with that string in their title, content, or author
+    this.searchJournal = function searchJournal(word) {
+
+        var entriesWithWord = [];
+        var check = 0;
+
+        for (var i = 0; i < this.entries.length; i++) {
+            var str = this.entries[i].title + " " + this.entries[i].content + " " + this.entries[i].author;
+            check = str.indexOf(word);
+            if (check != -1) {
+                entriesWithWord.push(this.entries[i]);
+            }
+        }
+        return entriesWithWord;
+    }
+
 }
 
+//helper constructor to create entry objects
 function Entry(title, content, author, tags) {
     this.title = title;
     this.content = content;
@@ -56,17 +78,17 @@ function Entry(title, content, author, tags) {
 
 var codeBook = new Journal();
 codeBook.writeEntry("js is cool 1", "js is pretty dope", "kush", ['code', 'javascript', 'reflection']);
-codeBook.writeEntry("js is cool 2", "js is pretty dope", "kush", ['code', 'callback', 'reflection']);
+codeBook.writeEntry("js kinda cool 2", "js is really dope", "kush", ['code', 'callback', 'reflection']);
 codeBook.writeEntry("js is cool 3", "js is pretty dope", "kush", ['code', 'dope', 'jazz']);
-codeBook.writeEntry("js is cool 4", "js is pretty dope", "kush", ['try', 'javascript', 'unrelated']);
+codeBook.writeEntry("js is cool 4", "js is pretty dope", "kush thaker", ['try', 'javascript', 'unrelated']);
 
 var singleEntryTest = codeBook.readSingleEntry(1);
 var allEntriesTest = codeBook.readAllEntries();
 var searchTagTest = codeBook.searchTag('javascript');
+var searchJournalTest = codeBook.searchJournal('thaker');
 
-console.log(singleEntryTest);
-console.log(allEntriesTest);
-console.log(searchTagTest);
+
+
 
 
 
