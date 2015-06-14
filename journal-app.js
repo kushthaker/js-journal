@@ -21,6 +21,20 @@ function Journal() {
         return str;
     }
 
+
+    //takes in an array of entry indexes and displays specified entries
+    this.readSpecificEntries = function readSpecificEntries(specified) {
+        var str = "";
+
+        for (var i = 0; i < this.entries.length; i++) {
+            if (i === specified) {
+                str += this.readSingleEntry(i);
+            }
+        }
+
+        return str;
+    }
+
     //returns string that lists all entries in journal 
     this.readAllEntries = function readAllEntries() {
         var str = "";
@@ -66,6 +80,12 @@ function Journal() {
         return entriesWithWord;
     }
 
+    //deletes specified entry, returns true if successful
+    this.deleteEntry = function deleteEntry(entryIndex) {
+        this.entries.splice(entryIndex, 1);
+        return true;
+    }
+
 }
 
 //helper constructor to create entry objects
@@ -77,15 +97,25 @@ function Entry(title, content, author, tags) {
 }
 
 var codeBook = new Journal();
+
 codeBook.writeEntry("js is cool 1", "js is pretty dope", "kush", ['code', 'javascript', 'reflection']);
 codeBook.writeEntry("js kinda cool 2", "js is really dope", "kush", ['code', 'callback', 'reflection']);
 codeBook.writeEntry("js is cool 3", "js is pretty dope", "kush", ['code', 'dope', 'jazz']);
-codeBook.writeEntry("js is cool 4", "js is pretty dope", "kush thaker", ['try', 'javascript', 'unrelated']);
+codeBook.writeEntry("js is cool 4", "js is pretty dope", "kush", ['code', 'dope', 'jazz']);
+codeBook.writeEntry("js is cool 5", "js is pretty dope", "kush", ['code', 'dope', 'jazz']);
+codeBook.writeEntry("js is cool 6", "js is pretty dope", "kush", ['code', 'dope', 'jazz']);
+codeBook.writeEntry("js is cool 7", "js is pretty dope", "kush thaker", ['try', 'javascript', 'unrelated']);
 
 var singleEntryTest = codeBook.readSingleEntry(1);
-var allEntriesTest = codeBook.readAllEntries();
 var searchTagTest = codeBook.searchTag('javascript');
 var searchJournalTest = codeBook.searchJournal('thaker');
+var specificEntriesTest = codeBook.readSpecificEntries(2);
+
+console.log(codeBook.deleteEntry(2));
+
+var allEntriesTest = codeBook.readAllEntries();
+
+console.log(allEntriesTest);
 
 
 
