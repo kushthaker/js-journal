@@ -86,7 +86,24 @@ function Journal() {
         return true;
     }
 
-}
+
+    //exporting to JSON
+    this.exportJournaltoJSON = function exportJournaltoJSON() {
+    	var stringOutput = [];
+    	stringOutput = JSON.stringify(this.entries);
+    	return stringOutput;
+    }
+
+    //importing from JSON
+    this.getJournalfromJSON = function getJournalfromJSON(stringInput) {
+    	var parsedObject = [];
+    	parsedObject = JSON.parse(stringInput);
+    	return parsedObject;
+    }
+
+
+
+} //end of Journal constructor
 
 //helper constructor to create entry objects
 function Entry(title, content, author, tags) {
@@ -110,13 +127,11 @@ var singleEntryTest = codeBook.readSingleEntry(1);
 var searchTagTest = codeBook.searchTag('javascript');
 var searchJournalTest = codeBook.searchJournal('thaker');
 var specificEntriesTest = codeBook.readSpecificEntries(2);
-
-console.log(codeBook.deleteEntry(2));
-
 var allEntriesTest = codeBook.readAllEntries();
+var JSONoutputTest = codeBook.exportJournaltoJSON();
+var JSONinputTest = codeBook.getJournalfromJSON(JSONoutputTest);
 
-console.log(allEntriesTest);
-
+console.log(JSONinputTest);
 
 
 
