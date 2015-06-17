@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap Practice</title>	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+
+	<div class="form-container">
+		<form id="instagram-form" action="https://api.instagram.com/v1/users/search" method="GET" autocomplete="off">
+				<input id="username" type="text" name="q" placeholder="Write User Name Here">
+				<input type="hidden" name="client_id" value="61f8b631abd34732a3bcd8c73d0d73a9">
+				<button>Search User</button>
+		</form>
+
+		<ul id="instagram-users">
+		</ul>
+	</div>
+
+	<ul id="instagram-users">
+	</ul>
+
+
+
+
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
