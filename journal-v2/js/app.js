@@ -10,20 +10,26 @@ codeBook.writeEntry("js is cool 5", "js is pretty dope", "kush", ['code', 'dope'
 codeBook.writeEntry("js is cool 6", "js is pretty dope", "kush", ['code', 'dope', 'jazz']);
 codeBook.writeEntry("js is cool 7", "js is pretty dope", "kush thaker", ['try', 'javascript', 'unrelated']);
 
-
-
-
-var HTMLString = codeBook.journaltoHTML();
-
-$('#journal-body').prepend(HTMLString);
+var addEntrytoJournalHTML = function() {
+	var HTMLString = codeBook.journaltoHTML();
+	$('#journal-body').prepend(HTMLString);
+}
 
 $('form').submit(function() {
 	event.preventDefault();
 	var entrySubmission = $('form').serializeFormToObject();
-	codeBook.entries.push(entrySubmission);
+	codeBook.writeEntry(entrySubmission.title, entrySubmission.content, entrySubmission.author, []);
+	codeBook.entries.push();
+	addEntrytoJournalHTML();
 });
 
-console.log(codeBook.entries);
+
+addEntrytoJournalHTML();
+
+
+
+
+
 
 
 
