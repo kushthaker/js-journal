@@ -11,22 +11,6 @@ function Journal() {
         this.entries.push(new Entry(title, content, author, tags));
     }
 
-
-    this.HTMLString = function HTMLString(entry) {
-        var title = this.entries[entry].title;
-        var body = this.entries[entry].content;
-        var author = this.entries[entry].author;
-        $('#journal-body').append('<h3>' + title + '</h3>' + ' <br> ' + '<p>' + body + '</p>' + '<p>' + author + '</p>');
-
-    }
-
-
-    this.displayAllEntriestoWeb = function displayAllEntriestoWeb() {
-        for (var i = 0; i < this.entries.length; i++) {
-            this.displayEntrytoWeb([i]);
-        } 
-    }
-
     //takes index value and returns string that prints the specific entry to console 
     this.readSingleEntry = function readSingleEntry(entryNumber) {
         var dateStamp = new Date();
@@ -114,12 +98,45 @@ function Journal() {
     this.getJournalfromJSON = function getJournalfromJSON(stringInput) {
     	var parsedObject = [];
     	parsedObject = JSON.parse(stringInput);
-    	return parsedObject;
+    	return parsedObject;        
     }
 
 
+    //toHTML function
+    this.entrytoHTML = function entrytoHTML(entry) {
+        
+        var title = this.entries[entry].title;
+        var content = this.entries[entry].content;
+        var author = this.entries[entry].author;
+
+        str = "";
+
+        str += '<article>';
+        str += '<h3>' + title + '</h3>';
+        str += '<p>' + content + '</p>';
+        str += '<p>' +  'Written By: ' + author + '</p>';
+        str += '</article>';
+
+        return str;
+
+    }
+
+    //JournaltoHTML function
+    this.journaltoHTML = function journaltoHTML() {
+        str = "";
+        
+        for (var i = this.entries.length - 1; i >= 0; i--) {
+            str += this.entrytoHTML(i);
+        }
+
+        return str;
+    }
+
 
 } //end of Journal constructor
+
+
+
 
 //helper constructor to create entry objects
 function Entry(title, content, author, tags) {
@@ -129,26 +146,13 @@ function Entry(title, content, author, tags) {
     this.tags = tags;
 }
 
-var codeBook = new Journal();
-
-codeBook.writeEntry("js is cool 1", "js is pretty dope", "kush", ['code', 'javascript', 'reflection']);
-codeBook.writeEntry("js kinda cool 2", "js is really dope", "kush", ['code', 'callback', 'reflection']);
-codeBook.writeEntry("js is cool 3", "js is pretty dope", "kush", ['code', 'dope', 'jazz']);
-codeBook.writeEntry("js is cool 4", "js is pretty dope", "kush", ['code', 'dope', 'jazz']);
-codeBook.writeEntry("js is cool 5", "js is pretty dope", "kush", ['code', 'dope', 'jazz']);
-codeBook.writeEntry("js is cool 6", "js is pretty dope", "kush", ['code', 'dope', 'jazz']);
-codeBook.writeEntry("js is cool 7", "js is pretty dope", "kush thaker", ['try', 'javascript', 'unrelated']);
-
-var singleEntryTest = codeBook.readSingleEntry(1);
-var searchTagTest = codeBook.searchTag('javascript');
-var searchJournalTest = codeBook.searchJournal('thaker');
-var specificEntriesTest = codeBook.readSpecificEntries(2);
-var allEntriesTest = codeBook.readAllEntries();
-var JSONoutputTest = codeBook.exportJournaltoJSON();
-var JSONinputTest = codeBook.getJournalfromJSON(JSONoutputTest);
-
-codeBook.displayEntrytoWeb(0);
-codeBook.displayAllEntriestoWeb();
+// var singleEntryTest = codeBook.readSingleEntry(1);
+// var searchTagTest = codeBook.searchTag('javascript');
+// var searchJournalTest = codeBook.searchJournal('thaker');
+// var specificEntriesTest = codeBook.readSpecificEntries(2);
+// var allEntriesTest = codeBook.readAllEntries();
+// var JSONoutputTest = codeBook.exportJournaltoJSON();
+// var JSONinputTest = codeBook.getJournalfromJSON(JSONoutputTest);
 
 
 
