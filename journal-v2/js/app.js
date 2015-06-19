@@ -18,7 +18,7 @@ var addEntrytoJournalHTML = function() {
 $('form').submit(function() {
 	event.preventDefault();
 	var entrySubmission = $('form').serializeFormToObject();
-	codeBook.writeEntry(entrySubmission.title, entrySubmission.content, entrySubmission.author, []);
+	codeBook.writeEntry(entrySubmission.title, entrySubmission.content, entrySubmission.author, entrySubmission.tags);
 	codeBook.entries.push();
 	addEntrytoJournalHTML();
 });

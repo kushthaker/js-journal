@@ -9,6 +9,7 @@ function Journal() {
     //uses Entry constructor to create entry object and stores it in this.entries[]
     this.writeEntry = function writeEntry(title, content, author, tags) {
         this.entries.push(new Entry(title, content, author, tags));
+
     }
 
     //takes index value and returns string that prints the specific entry to console 
@@ -101,32 +102,12 @@ function Journal() {
     	return parsedObject;        
     }
 
-
-    //toHTML function
-    this.entrytoHTML = function entrytoHTML(entry) {
-        
-        var title = this.entries[entry].title;
-        var content = this.entries[entry].content;
-        var author = this.entries[entry].author;
-
-        str = "";
-
-        str += '<article>';
-        str += '<h3>' + title + '</h3>';
-        str += '<p>' + content + '</p>';
-        str += '<p>' +  'Written By: ' + author + '</p>';
-        str += '</article>';
-
-        return str;
-
-    }
-
     //JournaltoHTML function
     this.journaltoHTML = function journaltoHTML() {
         str = "";
         
         for (var i = this.entries.length - 1; i >= 0; i--) {
-            str += this.entrytoHTML(i);
+            str += this.entries[i].entrytoHTML(i);
         }
 
         return str;
@@ -143,7 +124,38 @@ function Entry(title, content, author, tags) {
     this.title = title;
     this.content = content;
     this.author = author;
-    this.tags = tags;
+    if (typeof tags === 'string') {
+        this.tags = tags.split(',');
+    }
+    else {
+        this.tags = tags;
+    }
+
+    this.writeTags = function writeTags() {
+        str = "";
+        
+            for (var i = 0; i < tags.length; i++) {
+            str += '#' + this.tags[i] + ' ';
+            return str;
+        }
+    }
+
+    //toHTML function
+    this.entrytoHTML = function entrytoHTML(entry) {
+
+        str = "";
+
+        str += '<article>';
+        str += '<h3>' + this.title + '</h3>';
+        str += '<p>' + this.content + '</p>';
+        str += '<p>' +  'Written By: ' + this.author + '</p>';
+        str += this.writeTags();
+        str += '</article>';
+
+        return str;
+
+    }
+
 }
 
 // var singleEntryTest = codeBook.readSingleEntry(1);
