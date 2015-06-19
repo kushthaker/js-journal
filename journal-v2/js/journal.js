@@ -1,7 +1,6 @@
 //practicing thinking in objects, making a simple journal application
 //Journal includes all entries and ability to read, search and display entries
 //Entries include title, content, author and an array of tags
-
 function Journal() {
 
     this.entries = [];
@@ -90,22 +89,22 @@ function Journal() {
 
     //exporting to JSON
     this.exportJournaltoJSON = function exportJournaltoJSON() {
-    	var stringOutput = [];
-    	stringOutput = JSON.stringify(this.entries);
-    	return stringOutput;
+        var stringOutput = [];
+        stringOutput = JSON.stringify(this.entries);
+        return stringOutput;
     }
 
     //importing from JSON
     this.getJournalfromJSON = function getJournalfromJSON(stringInput) {
-    	var parsedObject = [];
-    	parsedObject = JSON.parse(stringInput);
-    	return parsedObject;        
+        var parsedObject = [];
+        parsedObject = JSON.parse(stringInput);
+        return parsedObject;
     }
 
     //JournaltoHTML function
     this.journaltoHTML = function journaltoHTML() {
         str = "";
-        
+
         for (var i = this.entries.length - 1; i >= 0; i--) {
             str += this.entries[i].entrytoHTML(i);
         }
@@ -126,21 +125,23 @@ function Entry(title, content, author, tags) {
     this.author = author;
     if (typeof tags === 'string') {
         this.tags = tags.split(',');
-    }
-    else {
+    } else {
         this.tags = tags;
     }
 
+    console.log(this.tags);
+
     this.writeTags = function writeTags() {
+
         str = "";
-        
-            for (var i = 0; i < tags.length; i++) {
+        for (var i = 0; i < this.tags.length; i++) {
             str += '#' + this.tags[i] + ' ';
-            return str;
         }
+
+        return str;
     }
 
-    //toHTML function
+    //function to generate HTML string for entry
     this.entrytoHTML = function entrytoHTML(entry) {
 
         str = "";
@@ -148,7 +149,7 @@ function Entry(title, content, author, tags) {
         str += '<article>';
         str += '<h3>' + this.title + '</h3>';
         str += '<p>' + this.content + '</p>';
-        str += '<p>' +  'Written By: ' + this.author + '</p>';
+        str += '<p>' + 'Written By: ' + this.author + '</p>';
         str += this.writeTags();
         str += '</article>';
 
@@ -165,15 +166,3 @@ function Entry(title, content, author, tags) {
 // var allEntriesTest = codeBook.readAllEntries();
 // var JSONoutputTest = codeBook.exportJournaltoJSON();
 // var JSONinputTest = codeBook.getJournalfromJSON(JSONoutputTest);
-
-
-
-
-
-
-
-
-
-
-
-
