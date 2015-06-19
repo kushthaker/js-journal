@@ -47,9 +47,7 @@ $('#search-form form').submit(function() {
 
 	if (query.author) {
 		var author_result = codeBook.searchAuthor(query.author);
-		console.log(author_result);
 		author_result = codeBook.toSearchResultString(author_result);
-		console.log(author_result);
 		$('#journal-body').html(author_result);
 	}
 
