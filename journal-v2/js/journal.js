@@ -169,7 +169,7 @@ function Entry(title, content, author, tags) {
     //function to generate HTML string for entry
     this.entrytoHTML = function entrytoHTML(entry) {
         var dateStamp = new Date();
-        
+
         str = "";
 
         str += '<article>';
@@ -177,7 +177,7 @@ function Entry(title, content, author, tags) {
         str += '<p>' + this.content + '</p>';
         str += '<p>' + 'Written By: ' + this.author + '</p>';
         str += '<p>' + this.writeTagstoHTML() + '</p>';
-        str += '<p>' + dateStamp.getFullYear() + ' - ' + dateStamp.getMonth() + ' - ' + dateStamp.getDay()  + '</p>';
+        str += '<p>' + dateStamp.getFullYear() + ' - ' + dateStamp.getMonth() + ' - ' + dateStamp.getDay() + '</p>';
         str += '</article>';
 
         return str;
@@ -193,8 +193,3 @@ function Entry(title, content, author, tags) {
 // var allEntriesTest = codeBook.readAllEntries();
 // var JSONoutputTest = codeBook.exportJournaltoJSON();
 // var JSONinputTest = codeBook.getJournalfromJSON(JSONoutputTest);
-
-
-
-
-
