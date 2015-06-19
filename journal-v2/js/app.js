@@ -15,16 +15,39 @@ var addEntrytoJournalHTML = function() {
 	$('#journal-body').prepend(HTMLString);
 }
 
+$('journal-search').submit(function() {
+	event.preventDefault();
+
+});
+
 $('form').submit(function() {
 	event.preventDefault();
-	var entrySubmission = $('form').serializeFormToObject();
+});
+
+
+//Entry submission handling
+$('#journal-form form').submit(function() {
+	event.preventDefault();
+	var entrySubmission = $('#journal-form form').serializeFormToObject();
 	codeBook.writeEntry(entrySubmission.title, entrySubmission.content, entrySubmission.author, entrySubmission.tags);
 	codeBook.entries.push();
 	addEntrytoJournalHTML();
 });
 
+//Author search handling 
+$('#search-form form').submit(function() {
+	event.preventDefault();
+	var query = $('#search-form form').serializeFormToObject();
+	var result = codeBook.searchTag(query.author);
+	result = codeBook.displaySearchResult(result);
+	$('#journal-body').html(result);
+});
+
+//Tag search handling 
 
 addEntrytoJournalHTML();
+
+
 
 
 

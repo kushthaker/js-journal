@@ -46,39 +46,6 @@ function Journal() {
         return str;
     }
 
-    //takes in string tag and returns all object entries with that tag
-    this.searchTag = function searchTag(tag) {
-
-        var entriesWithTag = [];
-
-        for (var i = 0; i < this.entries.length; i++) {
-            var currentEntry = this.entries[i];
-            for (var j = 0; j < currentEntry.tags.length; j++) {
-                if (this.entries[i].tags[j] === tag) {
-                    entriesWithTag.push(this.entries[i]);
-                }
-            }
-        }
-
-        return entriesWithTag;
-    }
-
-
-    //takes in string and returns all object entries with that string in their title, content, or author
-    this.searchJournal = function searchJournal(word) {
-
-        var entriesWithWord = [];
-        var check = 0;
-
-        for (var i = 0; i < this.entries.length; i++) {
-            var str = this.entries[i].title + " " + this.entries[i].content + " " + this.entries[i].author;
-            check = str.indexOf(word);
-            if (check != -1) {
-                entriesWithWord.push(this.entries[i]);
-            }
-        }
-        return entriesWithWord;
-    }
 
     //deletes specified entry, returns true if successful
     this.deleteEntry = function deleteEntry(entryIndex) {
@@ -101,6 +68,8 @@ function Journal() {
         return parsedObject;
     }
 
+    // JOURNAL HTML METHODS
+
     //JournaltoHTML function
     this.journaltoHTML = function journaltoHTML() {
         str = "";
@@ -110,6 +79,51 @@ function Journal() {
         }
 
         return str;
+    }
+
+    //takes in string tag and returns all object entries with that tag
+    this.searchTag = function searchTag(tag) {
+
+        var entriesWithTag = [];
+
+        for (var i = 0; i < this.entries.length; i++) {
+            var currentEntry = this.entries[i];
+            for (var j = 0; j < currentEntry.tags.length; j++) {
+                if (this.entries[i].tags[j] === tag) {
+                    entriesWithTag.push(this.entries[i]);
+                }
+            }
+        }
+
+        return entriesWithTag;
+    }
+
+    //takes in string and returns all object entries with that string in their title, content, or author
+    this.searchJournal = function searchJournal(word) {
+
+        var entriesWithWord = [];
+        var check = 0;
+
+        for (var i = 0; i < this.entries.length; i++) {
+            var str = this.entries[i].title + " " + this.entries[i].content + " " + this.entries[i].author;
+            check = str.indexOf(word);
+            if (check != -1) {
+                entriesWithWord.push(this.entries[i]);
+            }
+        }
+        return entriesWithWord;
+    }
+
+    //takes in an array of entry objects, returns HTML string
+    this.displaySearchResult = function displaySearchResult(result) {
+        str = "";
+
+        for (var i = 0; i < result.length; i++) {
+            str += result[i].entrytoHTML(i);
+        }
+
+        return str;
+
     }
 
 
@@ -124,14 +138,12 @@ function Entry(title, content, author, tags) {
     this.content = content;
     this.author = author;
     if (typeof tags === 'string') {
-        this.tags = tags.split(',');
+        this.tags = tags.split(', ');
     } else {
         this.tags = tags;
     }
 
-    console.log(this.tags);
-
-    this.writeTags = function writeTags() {
+    this.writeTagstoHTML = function writeTagstoHTML() {
 
         str = "";
         for (var i = 0; i < this.tags.length; i++) {
@@ -150,7 +162,7 @@ function Entry(title, content, author, tags) {
         str += '<h3>' + this.title + '</h3>';
         str += '<p>' + this.content + '</p>';
         str += '<p>' + 'Written By: ' + this.author + '</p>';
-        str += this.writeTags();
+        str += this.writeTagstoHTML();
         str += '</article>';
 
         return str;
@@ -166,3 +178,8 @@ function Entry(title, content, author, tags) {
 // var allEntriesTest = codeBook.readAllEntries();
 // var JSONoutputTest = codeBook.exportJournaltoJSON();
 // var JSONinputTest = codeBook.getJournalfromJSON(JSONoutputTest);
+
+
+
+
+

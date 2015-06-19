@@ -1,55 +1,75 @@
- 	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
-	<title>Journal App</title>	
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>Journal App</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
+
 <body>
 
-	<section id="journal">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-8">
-					<h1>My Journal Entries</h1>
-					<section id="journal-body">
-					</section>					
-				</div>
-				<div class="col-sm-4">
-					<section id="journal-form">
-						<h1>Entry Submission</h1>
-							<form>
-								<div>
-									<input type="text" name="title" placeholder="Enter Title" class="field" />
-								</div>
-								<div>
-									<textarea type="text" name="content" placeholder="Enter content" class="field"></textarea>
-								</div>
-								<div>
-									<input type="text" name="author" placeholder="Provide author" class="field" />
-								</div>
-								<div>
-									<input type="text" name="tags" placeholder="Enter Tag Here" class="field" />
-								</div>
-								<div>	
-									<input type="submit" class="field" />
-								</div>
-							</form>
-					</section>
-				</div>
+    <section id="journal">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1>My Journal Entries</h1>
+                    <section id="journal-body">
+                    </section>
+                </div>
+                <div class="col-sm-4">
+                    <section id="journal-form">
+                        <h1>Entry Submission</h1>
+                        <form>
+                            <div>
+                                <input type="text" required name="title" placeholder="Enter Title" class="field" />
+                            </div>
+                            <div>
+                                <textarea type="text" required name="content" placeholder="Enter content" class="field"></textarea>
+                            </div>
+                            <div>
+                                <input type="text" required name="author" placeholder="Provide author" class="field" />                          
+                            </div>
+                            <div>
+                                <input type="text" name="tags" placeholder="enter tags" class="field" />
+                            </div>                            
+                            <div>
+                                <input type="submit" class="field" />
+                            </div>
+                        </form>
+                    </section>
+                            <hr />	
+                	<section id ="search-form">
+                        <form>
+                        	<h1>Search Journal</h1>
+                            <div>
+                                <input type="text" name="tags" placeholder="Search tag" class="field" />
+                            </div>
+                            <div>
+                                <input type="text" name="word" placeholder="Search journal" class="field" />
+                            </div>
+                            <div>
+                                <input type="text" name="author" placeholder="Search by author" class="field" />
+                            </div>
+                            <div>
+                                <input type="submit" class="field" />
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
 
-			
-		
-	</section>
 
 
 
 
-
-	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery-formObjects.js"></script>
-	<script type="text/javascript" src="js/journal.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-formObjects.js"></script>
+    <script type="text/javascript" src="js/journal.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
+
 </html>
