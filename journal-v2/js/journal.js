@@ -98,6 +98,20 @@ function Journal() {
         return entriesWithTag;
     }
 
+    //takes in string tag and returns all object entries with that tag
+    this.searchAuthor = function searchAuthor(author) {
+
+        var entriesWithAuthor = [];
+
+        for (var i = 0; i < this.entries.length; i++) {
+            if (this.entries[i].author == author) {
+                entriesWithAuthor.push(this.entries[i]);
+            }
+        }
+
+        return entriesWithAuthor;
+    }
+
     //takes in string and returns all object entries with that string in their title, content, or author
     this.searchJournal = function searchJournal(word) {
 
@@ -115,7 +129,7 @@ function Journal() {
     }
 
     //takes in an array of entry objects, returns HTML string
-    this.displaySearchResult = function displaySearchResult(result) {
+    this.toSearchResultString = function toSearchResultString(result) {
         str = "";
 
         for (var i = 0; i < result.length; i++) {
@@ -164,7 +178,7 @@ function Entry(title, content, author, tags) {
         str += '<p>' + this.content + '</p>';
         str += '<p>' + 'Written By: ' + this.author + '</p>';
         str += '<p>' + this.writeTagstoHTML() + '</p>';
-        str += '<p>' + dateStamp.getFullYear() + '-' + dateStamp.getMonth() + '-' + dateStamp.getDay()  + '</p>';
+        str += '<p>' + dateStamp.getFullYear() + ' - ' + dateStamp.getMonth() + ' - ' + dateStamp.getDay()  + '</p>';
         str += '</article>';
 
         return str;
