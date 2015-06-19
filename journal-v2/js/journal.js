@@ -113,15 +113,14 @@ function Journal() {
     }
 
     //takes in string and returns all object entries with that string in their title, content, or author
-    this.searchJournal = function searchJournal(word) {
+    this.searchGeneral = function searchGeneral(word) {
 
         var entriesWithWord = [];
-        var check = 0;
 
         for (var i = 0; i < this.entries.length; i++) {
             var str = this.entries[i].title + " " + this.entries[i].content + " " + this.entries[i].author;
-            check = str.indexOf(word);
-            if (check != -1) {
+            check = str.split(word);
+            if (check.length > 1) {
                 entriesWithWord.push(this.entries[i]);
             }
         }
