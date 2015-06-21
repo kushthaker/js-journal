@@ -1,16 +1,13 @@
 var codeBook = new Journal();
 
-codeBook.writeEntry("js is cool 1", "js is pretty dope", "kush", ['code', 'javascript', 'reflection']);
-codeBook.writeEntry("js kinda cool 2", "js is really dope", "kush", ['code', 'callback', 'reflection']);
-codeBook.writeEntry("js is cool 3", "js is pretty dope", "bob", ['code', 'dope', 'bobtag']);
-codeBook.writeEntry("js is cool 4", "js is pretty dope", "kush", ['code', 'dope', 'jazz']);
-codeBook.writeEntry("js is cool 5", "js is pretty dope", "bob", ['code', 'dope', 'jazz']);
-codeBook.writeEntry("js is cool 6", "js is pretty dope", "kush", ['code', 'bobtag', 'kushtag']);
-codeBook.writeEntry("js is cool 7", "js is pretty dope", "kush thaker", ['try', 'javascript', 'unrelated']);
+codeBook.writeEntry("First Title", "Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't. Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't. Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't.", "kush", ['deep', 'whoa', 'drizzy']);
+codeBook.writeEntry("Second Title", "Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't. Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't. Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't.", "bob", ['underground', 'hardcore', 'drizzy']);
+codeBook.writeEntry("Third Title", "Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't. Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't. Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't.", "kush", ['code', 'deep', 'too much', 'the hustle']);
+codeBook.writeEntry("Fourth Title", "Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't. Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't. Lorem Ipsur et ido, some more blah blah writing that makes it seem like a legit post yeah yeah whoa okay stop with the four letter words, that's ironic that I couldn't.", "kush thaker", ['try', 'javascript', 'unrelated']);
 
 var addEntrytoJournalHTML = function() {
     var HTMLString = codeBook.journaltoHTML();
-    $('#journal-body').prepend(HTMLString);
+    $('#journal-body').html(HTMLString);
 }
 
 
@@ -24,10 +21,10 @@ $('#journal-form form').submit(function() {
 });
 
 
-
 var tags_result = "";
 var author_result = "";
 var general_result = "";
+var final_result = "";
 
 $('#search-form form').submit(function() {
 

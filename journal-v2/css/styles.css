@@ -1,8 +1,56 @@
 body, html {
 	margin: 0;
 	height: 100%;
+	background-color: #FDFDFD;
 }
 
 .field {
 	margin: 15px;
+}
+
+/*ALL FONTS CSS*/
+
+@font-face {
+	font-family: "OpenSans-Bold";
+    src: url(../fonts/open-sans/OpenSans-Bold.ttf);
+}
+
+@font-face {
+	font-family: "OpenSans-ExtraBold";
+    src: url(../fonts/open-sans/OpenSans-ExtraBold.ttf);
+}
+
+@font-face {
+	font-family: "OpenSans-Regular";
+    src: url(../fonts/open-sans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+	font-family: "Quicksand-Book";
+    src: url(../fonts/quicksand/Quicksand-Regular.otf);
+}
+
+@font-face {
+	font-family: "Quicksand-Bold";
+	src: url(../fonts/quicksand/Quicksand-Bold.otf);
+}
+
+#journal h1 {
+	font-family: OpenSans-Bold;
+	line-height: 80px;
+	font-size: 36px;
+}
+
+article h3 {
+	font-family: OpenSans-Bold;
+	line-height: 50px;
+	font-size: 42px;
+}
+
+article p {
+	font-family: 'Merriweather', serif;
+	line-height: 28px;
+	font-size: 18px;
+	font-weight: 100;
+	color: #575757;
 }
