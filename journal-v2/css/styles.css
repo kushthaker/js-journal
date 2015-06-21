@@ -47,7 +47,7 @@ body, html {
   font-size: 14px;
   line-height: 1.42857143;
   color: #FFFFFF;
-  background-color: #28aadc;
+  background-color: #FFFFFF;
   background-image: none;
   border: 1.5px solid #00648C;
   border-radius: 0px;
@@ -58,26 +58,53 @@ body, html {
   border-color: #FFFFFF;
   background-color: #00648c;
   outline: 0;
+  opacity: 0.8;
+}
+
+input[type=submit]{
+  color: black;
 }
 
 input[type=submit]:hover {
+  color: #FFFFFF;
   background-color: #00648c;
 }
 
 .form-control::-webkit-input-placeholder { 
-	color: #eaeaea; 
+	color: #d1d1d1; 
 }
 .form-control:-moz-placeholder { 
-	color: #eaeaea; 
+	color: #d1d1d1; 
 }
 .form-control::-moz-placeholder { 
-	color: #eaeaea; 
+	color: #d1d1d1; 
 }
 .form-control:-ms-input-placeholder { 
-	color: #eaeaea; 
+	color: #d1d1d1; 
 }
 
 /*END OF BOOTSTRAP AND HTML5 OVERRIDE*/
+
+/*HEADER SECTION*/
+
+#header-section {
+	height: 60%;
+	background-color: #005170;
+}
+
+#header-section h1 {
+	font-family: 'Merriweather', serif;
+	line-height: 65px;
+	font-size: 80px;
+	font-weight: 400;
+	color: #FFFFFF;
+	margin-top: 150px;
+	margin-bottom: 60px;
+	text-align: center;
+
+}
+
+
 
 /*START OF JOURNAL BODY CSS*/
 
@@ -123,6 +150,18 @@ article h4 {
 }
 
 /*END OF JOURNAL BODY CSS*/
+
+/*ALL MEDIA QUERIES*/
+
+@media (max-width: 768px) {
+
+	#journal-body {
+		width: 100%;
+	}
+
+}
+
+/*END OF ALL MEDIA QUERIES*/
 
 
 
