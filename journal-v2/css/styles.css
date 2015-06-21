@@ -90,6 +90,7 @@ input[type=submit]:hover {
 #header-section {
 	height: 60%;
 	background-color: #005170;
+	position: relative;
 }
 
 #header-section h1 {
