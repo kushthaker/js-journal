@@ -1,3 +1,5 @@
+/*Used blueprints by Mary Lou for slide menu, great resource! http://tympanus.net/codrops/2013/04/17/slide-and-push-menus/ */
+
 /*!
  * classie - class helper functions
  * from bonzo https://github.com/ded/bonzo
