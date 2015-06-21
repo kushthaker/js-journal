@@ -35,16 +35,69 @@ body, html {
 	src: url(../fonts/quicksand/Quicksand-Bold.otf);
 }
 
+/*END OF FONTS CSS*/
+
+/*BOOTSTRAP + HTML5 OVERRIDE*/
+
+.form-control {
+  display: block;
+  width: 90%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #FFFFFF;
+  background-color: #28aadc;
+  background-image: none;
+  border: 1.5px solid #00648C;
+  border-radius: 0px;
+  margin: 0 auto;
+}
+
+.form-control:focus {
+  border-color: #FFFFFF;
+  background-color: #00648c;
+  outline: 0;
+}
+
+input[type=submit]:hover {
+  background-color: #00648c;
+}
+
+.form-control::-webkit-input-placeholder { 
+	color: #eaeaea; 
+}
+.form-control:-moz-placeholder { 
+	color: #eaeaea; 
+}
+.form-control::-moz-placeholder { 
+	color: #eaeaea; 
+}
+.form-control:-ms-input-placeholder { 
+	color: #eaeaea; 
+}
+
+/*END OF BOOTSTRAP AND HTML5 OVERRIDE*/
+
+/*START OF JOURNAL BODY CSS*/
+
+#journal-body {
+	width: 90%;
+}
+
 #journal h1 {
 	font-family: OpenSans-Bold;
 	line-height: 80px;
 	font-size: 36px;
+	color: black;
 }
 
 article h3 {
 	font-family: OpenSans-Bold;
 	line-height: 50px;
 	font-size: 42px;
+	color: black;
+	margin-bottom: 50px;
 }
 
 article p {
@@ -54,3 +107,8 @@ article p {
 	font-weight: 100;
 	color: #575757;
 }
+
+/*END OF JOURNAL BODY CSS*/
+
+
+

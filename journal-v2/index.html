@@ -3,59 +3,71 @@
 
 <head>
     <title>Journal App</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body>
 
-    <section id="journal">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset">
-                    <h1>My Journal Entries</h1>
-                    <section id="journal-body">                   
-                    </section>
-                </div>
-                <div class="col-sm-4">
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
                     <section id="journal-form">
-                        <h1>Submission</h1>
+                        <h3>Submission</h3>
                         <form>
                             <div class="form-group">
-                                <input type="text" required name="title" placeholder="Enter Title" class="form-control" />
+                                <input type="text" required name="title" placeholder="Title" class="form-control" />
                             </div>
                             <div class="form-group">
-                                <textarea type="text" required name="content" placeholder="Enter content" class="form-control"></textarea>
+                                <textarea type="text" required name="content" placeholder="Content" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="text" required name="author" placeholder="Provide author" class="form-control" />                          
+                                <input type="text" required name="author" placeholder="Author" class="form-control" />                          
                             </div>
                             <div class="form-group">
-                                <input type="text" name="tags" placeholder="enter tags" class="form-control" />
+                                <input type="text" name="tags" placeholder="Tags, separated by commas" class="form-control" />
                             </div>                            
                             <div class="form-group">
                                 <input type="submit" class="form-control" />
                             </div>
                         </form>
                     </section>
-                            <hr />	
-                	<section id ="search-form">
+
+                     <section id ="search-form">
                         <form>
-                        	<h1>Search Journal</h1>
+                        	<h3>Search Journal</h3>
                             <div class="form-group">
-                                <input type="text" name="tags" placeholder="Search tag" class="form-control" />
+                                <input type="text" name="tags" placeholder="By Tags" class="form-control" />
                             </div>
                             <div class="form-group">
-                                <input type="text" name="author" placeholder="Search by author" class="form-control" />
+                                <input type="text" name="author" placeholder="By Author" class="form-control" />
                             </div>
                             <div class="form-group">
-                                <input type="text" name="general" placeholder="Search journal" class="form-control" />
+                                <input type="text" name="general" placeholder="Entire journal" class="form-control" />
                             </div>                        
                             <div class="form-group">
                                 <input type="submit" class="form-control" />
                             </div>
                         </form>
+                    </section>
+		</nav>
+		<div class="container">
+			<header class="clearfix">
+			<div class="main">
+				<section>
+					<h2>Slide Menus</h2>
+					<!-- Class "cbp-spmenu-open" gets applied to menu -->
+					<button id="showLeft">Show/Hide Left Slide Menu</button>
+				</section>
+			</div>
+		</div>
+
+    <section id="journal">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1>My Journal Entries</h1>
+                    <section id="journal-body">                   
                     </section>
                 </div>
             </div>
@@ -69,6 +81,7 @@
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery-formObjects.js"></script>
+    <script src="js/classie.js"></script>
     <script type="text/javascript" src="js/journal.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
 </body>

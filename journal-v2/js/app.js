@@ -49,7 +49,6 @@ $('#search-form form').submit(function() {
         final_result += general_result;
     }
 
-
     $('#journal-body').html(final_result);
 
 });
