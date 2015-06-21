@@ -82,22 +82,27 @@ input[type=submit]:hover {
 /*START OF JOURNAL BODY CSS*/
 
 #journal-body {
-	width: 90%;
+	width: 60%;
+	margin: 0 auto;
 }
 
-#journal h1 {
-	font-family: OpenSans-Bold;
-	line-height: 80px;
-	font-size: 36px;
-	color: black;
+article {
+	margin-top: 10%;
+	margin-bottom: 10%;
 }
 
 article h3 {
 	font-family: OpenSans-Bold;
-	line-height: 50px;
+	line-height: 40px;
 	font-size: 42px;
 	color: black;
-	margin-bottom: 50px;
+}
+
+article h5 {
+	font-family: OpenSans-Regular;
+	line-height: 30px;
+	font-size: 15px;
+	color: #b5b5b5;
 }
 
 article p {
@@ -106,6 +111,15 @@ article p {
 	font-size: 18px;
 	font-weight: 100;
 	color: #575757;
+	margin-top: 30px;
+}
+
+article h4 {
+	font-family: OpenSans-Regular;
+	line-height: 28px;
+	font-size: 18px;
+	color: black;
+	margin-top: 20px;
 }
 
 /*END OF JOURNAL BODY CSS*/

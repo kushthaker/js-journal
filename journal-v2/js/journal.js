@@ -169,15 +169,18 @@ function Entry(title, content, author, tags) {
     //function to generate HTML string for entry
     this.entrytoHTML = function entrytoHTML(entry) {
         var dateStamp = new Date();
+        dateStamp = dateStamp.toUTCString();
+        dateStamp = dateStamp.slice(0, 16);
 
         str = "";
 
         str += '<article>';
         str += '<h3>' + this.title + '</h3>';
+        str += '<h5>' + dateStamp + ', tagged: ';
+        str += this.writeTagstoHTML(); + '</h5>';
         str += '<p>' + this.content + '</p>';
-        str += '<p>' + 'Written By: ' + this.author + '</p>';
-        str += '<p>' + this.writeTagstoHTML() + '</p>';
-        str += '<p>' + dateStamp.getFullYear() + ' - ' + dateStamp.getMonth() + ' - ' + dateStamp.getDay() + '</p>';
+        str += '<h4>' + 'Written By: ' + this.author + '</h4>';
+        str += '<hr>'
         str += '</article>';
 
         return str;
