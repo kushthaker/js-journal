@@ -27,29 +27,30 @@ var general_result = "";
 var final_result = "";
 
 $('#search-form form').submit(function() {
-
     event.preventDefault();
+    $('#journal-body').html("");
+
     var query = $('#search-form form').serializeFormToObject();
 
     if (query.tags) {
         var tags_result = codeBook.searchTag(query.tags);
-        tags_result = codeBook.toSearchResultString(tags_result);
         final_result = tags_result;
     }
 
     if (query.author) {
         var author_result = codeBook.searchAuthor(query.author);
-        author_result = codeBook.toSearchResultString(author_result);
         final_result += author_result;
     }
 
     if (query.general) {
         var general_result = codeBook.searchGeneral(query.general);
-        general_result = codeBook.toSearchResultString(general_result);
         final_result += general_result;
     }
 
+    console.log(final_result);
+    final_result = codeBook.searchtoHTML(final_result);
     $('#journal-body').html(final_result);
+
 
 });
 

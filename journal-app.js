@@ -11,41 +11,6 @@ function Journal() {
         this.entries.push(new Entry(title, content, author, tags));
     }
 
-    //takes index value and returns string that prints the specific entry to console 
-    this.readSingleEntry = function readSingleEntry(entryNumber) {
-        var dateStamp = new Date();
-        var str = this.entries[entryNumber].title + "\n\n" + this.entries[entryNumber].content +
-            "\n\n" + "made with love by " + this.entries[entryNumber].author + "\n" +
-            dateStamp + "\n\n" + "---------------------";
-        str += "\n\n";
-        return str;
-    }
-
-
-    //takes in an array of entry indexes and displays specified entries
-    this.readSpecificEntries = function readSpecificEntries(specified) {
-        var str = "";
-
-        for (var i = 0; i < this.entries.length; i++) {
-            if (i === specified) {
-                str += this.readSingleEntry(i);
-            }
-        }
-
-        return str;
-    }
-
-    //returns string that lists all entries in journal 
-    this.readAllEntries = function readAllEntries() {
-        var str = "";
-
-        for (var i = 0; i < this.entries.length; i++) {
-            str += this.readSingleEntry(i);
-        }
-
-        return str;
-    }
-
     //takes in string tag and returns all object entries with that tag
     this.searchTag = function searchTag(tag) {
 

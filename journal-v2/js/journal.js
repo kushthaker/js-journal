@@ -11,48 +11,13 @@ function Journal() {
 
     }
 
-    //takes index value and returns string that prints the specific entry to console 
-    this.readSingleEntry = function readSingleEntry(entryNumber) {
-        var dateStamp = new Date();
-        var str = this.entries[entryNumber].title + "\n\n" + this.entries[entryNumber].content +
-            "\n\n" + "made with love by " + this.entries[entryNumber].author + "\n" +
-            dateStamp + "\n\n" + "---------------------";
-        str += "\n\n";
-        return str;
-    }
-
-
-    //takes in an array of entry indexes and displays specified entries
-    this.readSpecificEntries = function readSpecificEntries(specified) {
-        var str = "";
-
-        for (var i = 0; i < this.entries.length; i++) {
-            if (i === specified) {
-                str += this.readSingleEntry(i);
-            }
-        }
-
-        return str;
-    }
-
-    //returns string that lists all entries in journal 
-    this.readAllEntries = function readAllEntries() {
-        var str = "";
-
-        for (var i = 0; i < this.entries.length; i++) {
-            str += this.readSingleEntry(i);
-        }
-
-        return str;
-    }
-
-
     //deletes specified entry, returns true if successful
     this.deleteEntry = function deleteEntry(entryIndex) {
         this.entries.splice(entryIndex, 1);
         return true;
     }
 
+    //JSON METHODS
 
     //exporting to JSON
     this.exportJournaltoJSON = function exportJournaltoJSON() {
@@ -70,7 +35,7 @@ function Journal() {
 
     // JOURNAL HTML METHODS
 
-    //JournaltoHTML function
+    //JournaltoHTML function, returns string
     this.journaltoHTML = function journaltoHTML() {
         str = "";
 
@@ -127,8 +92,10 @@ function Journal() {
         return entriesWithWord;
     }
 
+    
+
     //takes in an array of entry objects, returns HTML string
-    this.toSearchResultString = function toSearchResultString(result) {
+    this.searchtoHTML = function searchtoHTML(result) {
         str = "";
 
         for (var i = 0; i < result.length; i++) {
