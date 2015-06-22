@@ -47,15 +47,15 @@ function Journal() {
     }
 
     //takes in string tag and returns all object entries with that tag
-    this.searchTag = function searchTag(tag) {
+    this.searchTag = function searchTag(tag, searchDomain) {
 
         var entriesWithTag = [];
 
-        for (var i = 0; i < this.entries.length; i++) {
-            var currentEntry = this.entries[i];
+        for (var i = 0; i < searchDomain.length; i++) {
+            var currentEntry = searchDomain[i];
             for (var j = 0; j < currentEntry.tags.length; j++) {
-                if (this.entries[i].tags[j] === tag) {
-                    entriesWithTag.push(this.entries[i]);
+                if (searchDomain[i].tags[j] === tag) {
+                    entriesWithTag.push(searchDomain[i]);
                 }
             }
         }
@@ -64,13 +64,13 @@ function Journal() {
     }
 
     //takes in string tag and returns all object entries with that tag
-    this.searchAuthor = function searchAuthor(author) {
+    this.searchAuthor = function searchAuthor(author, searchDomain) {
 
         var entriesWithAuthor = [];
 
-        for (var i = 0; i < this.entries.length; i++) {
-            if (this.entries[i].author == author) {
-                entriesWithAuthor.push(this.entries[i]);
+        for (var i = 0; i < searchDomain.length; i++) {
+            if (searchDomain[i].author === author) {
+                entriesWithAuthor.push(searchDomain[i]);
             }
         }
 
@@ -78,21 +78,21 @@ function Journal() {
     }
 
     //takes in string and returns all object entries with that string in their title, content, or author
-    this.searchGeneral = function searchGeneral(word) {
+    this.searchGeneral = function searchGeneral(word, searchDomain) {
 
         var entriesWithWord = [];
 
-        for (var i = 0; i < this.entries.length; i++) {
-            var str = this.entries[i].title + " " + this.entries[i].content + " " + this.entries[i].author;
-            check = str.split(word);
+        for (var i = 0; i < searchDomain.length; i++) {
+            var str = searchDomain[i].title + " " + searchDomain[i].content + " " + searchDomain[i].author;
+            check = str.split(word);    
             if (check.length > 1) {
-                entriesWithWord.push(this.entries[i]);
+                entriesWithWord.push(searchDomain[i]);
             }
         }
         return entriesWithWord;
     }
 
-    
+
 
     //takes in an array of entry objects, returns HTML string
     this.searchtoHTML = function searchtoHTML(result) {
