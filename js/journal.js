@@ -3,48 +3,48 @@
 //Entries include title, content, author and an array of tags
 function Journal() {
 
-
     this.entries = [];
-
 
     //uses Entry constructor to create entry object and stores it in this.entries[]
     this.writeEntry = function writeEntry(title, content, author, tags) {
         this.entries.push(new Entry(title, content, author, tags));
 
-    };
+    }
 
     //deletes specified entry, returns true if successful
     this.deleteEntry = function deleteEntry(entryIndex) {
         this.entries.splice(entryIndex, 1);
         return true;
-    };
+    }
 
     //JSON METHODS
 
     //exporting to JSON
     this.exportJournaltoJSON = function exportJournaltoJSON() {
-        var stringOutput = JSON.stringify(this.entries);
+        var stringOutput = [];
+        stringOutput = JSON.stringify(this.entries);
         return stringOutput;
-    };
+    }
 
     //importing from JSON
     this.getJournalfromJSON = function getJournalfromJSON(stringInput) {
-        var parsedObject = JSON.parse(stringInput);
+        var parsedObject = [];
+        parsedObject = JSON.parse(stringInput);
         return parsedObject;
-    };
+    }
 
     // JOURNAL HTML METHODS
 
     //JournaltoHTML function, returns string
     this.journaltoHTML = function journaltoHTML() {
-        var str = "";
+        str = "";
 
         for (var i = this.entries.length - 1; i >= 0; i--) {
             str += this.entries[i].entrytoHTML(i);
         }
 
         return str;
-    };
+    }
 
     //takes in string tag and returns all object entries with that tag
     this.searchTag = function searchTag(tag, searchDomain) {
@@ -61,7 +61,7 @@ function Journal() {
         }
 
         return entriesWithTag;
-    };
+    }
 
     //takes in string tag and returns all object entries with that tag
     this.searchAuthor = function searchAuthor(author, searchDomain) {
@@ -75,7 +75,7 @@ function Journal() {
         }
 
         return entriesWithAuthor;
-    };
+    }
 
     //takes in string and returns all object entries with that string in their title, content, or author
     this.searchGeneral = function searchGeneral(word, searchDomain) {
@@ -90,13 +90,13 @@ function Journal() {
             }
         }
         return entriesWithWord;
-    };
+    }
 
 
 
     //takes in an array of entry objects, returns HTML string
     this.searchtoHTML = function searchtoHTML(result) {
-        var str = "";
+        str = "";
 
         for (var i = 0; i < result.length; i++) {
             str += result[i].entrytoHTML(i);
@@ -104,7 +104,7 @@ function Journal() {
 
         return str;
 
-    };
+    }
 
 
 } //end of Journal constructor
@@ -125,13 +125,13 @@ function Entry(title, content, author, tags) {
 
     this.writeTagstoHTML = function writeTagstoHTML() {
 
-        var str = "";
+        str = "";
         for (var i = 0; i < this.tags.length; i++) {
             str += '#' + this.tags[i] + ' ';
         }
 
         return str;
-    };
+    }
 
     //function to generate HTML string for entry
     this.entrytoHTML = function entrytoHTML(entry) {
@@ -139,7 +139,7 @@ function Entry(title, content, author, tags) {
         dateStamp = dateStamp.toUTCString();
         dateStamp = dateStamp.slice(0, 16);
 
-        var str = "";
+        str = "";
 
         str += '<article>';
         str += '<h3>' + this.title + '</h3>';
@@ -152,7 +152,7 @@ function Entry(title, content, author, tags) {
 
         return str;
 
-    };
+    }
 
 }
 
